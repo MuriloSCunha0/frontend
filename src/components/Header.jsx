@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { useAuth } from '../context/AuthContext';
 import { signOut } from 'firebase/auth';
@@ -7,12 +7,12 @@ import { auth } from '../firebase';
 
 const Header = () => {
   const { user } = useAuth();
-  const history = useHistory();
+  const Navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      history.push('/login');
+      Navigate('/login');
     } catch (error) {
       console.error('Erro ao fazer logout', error);
     }

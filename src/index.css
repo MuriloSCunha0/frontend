@@ -84,7 +84,7 @@ main {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  color: #1976d2;
+  color: #f0f0f0;
   margin-bottom: 1rem;
 }
 
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 form {
   max-width: 600px;
   margin: 2rem auto;
-  background: #fff;
+  background: #ffffff;
   padding: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -148,3 +148,208 @@ footer {
     padding: 1rem;
   }
 }
+
+/*Login Page*/
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .MuiFormControl-root {
+  margin-bottom: 1rem;
+}
+
+.login-form .MuiButton-containedPrimary {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.login-form .MuiButton-containedPrimary:hover {
+  background-color: #115293;
+}
+
+.login-form .MuiTypography-root {
+  margin-top: 1rem;
+}
+
+/* Register Page */
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-form .MuiFormControl-root {
+  margin-bottom: 1rem;
+}
+
+.register-form .MuiButton-containedPrimary {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.register-form .MuiButton-containedPrimary:hover {
+  background-color: #115293;
+}
+
+.register-form .MuiTypography-root {
+  margin-top: 1rem;
+}
+
+/* Profile Page */
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-form .MuiFormControl-root {
+  margin-bottom: 1rem;
+}
+
+.profile-form .MuiButton-containedPrimary {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.profile-form .MuiButton-containedPrimary:hover {
+  background-color: #115293;
+}
+
+.profile-form .MuiTypography-root {
+  margin-top: 1rem;
+}
+
+/* Dashboard Page */
+
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.dashboard-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-form .MuiFormControl-root {
+  margin-bottom: 1rem;
+}
+
+.dashboard-form .MuiButton-containedPrimary {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.dashboard-form .MuiButton-containedPrimary:hover {
+  background-color: #115293;
+}
+
+.dashboard-form .MuiTypography-root {
+  margin-top: 1rem;
+}
+
+/* Calendar Page */
+
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calendar-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-form .MuiFormControl-root {
+  margin-bottom: 1rem;
+}
+
+.calendar-form .MuiButton-containedPrimary {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.calendar-form .MuiButton-containedPrimary:hover {
+  background-color: #115293;
+}
+
+.calendar-form .MuiTypography-root {
+  margin-top: 1rem;
+}
+
+/* Event Page */
+
+.event-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.event-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.event-form .MuiFormControl-root {
+  margin-bottom: 1rem;
+}
+
+.event-form .MuiButton-containedPrimary {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.event-form .MuiButton-containedPrimary:hover {
+  background-color: #115293;
+}
+
+.event-form .MuiTypography-root {
+  margin-top: 1rem;
+}
+

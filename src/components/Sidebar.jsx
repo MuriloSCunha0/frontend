@@ -29,24 +29,26 @@ const Sidebar = ({ user, userType }) => {
           <ListItemIcon><Home /></ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
-        {user && (
-          <ListItem button component={Link} to="/calendar">
-            <ListItemIcon><CalendarToday /></ListItemIcon>
-            <ListItemText primary="Calendário" />
-          </ListItem>
-        )}
-        {user && userType === 'owner' && (
-          <ListItem button component={Link} to="/arena/new">
-            <ListItemIcon><Add /></ListItemIcon>
-            <ListItemText primary="Cadastrar Arena" />
-          </ListItem>
-        )}
-        {user && userType === 'admin' && (
-          <ListItem button component={Link} to="/admin">
-            <ListItemIcon><AccountCircle /></ListItemIcon>
-            <ListItemText primary="Admin" />
-          </ListItem>
-        )}
+        <ListItem button component={Link} to="/login">
+          <ListItemIcon><ExitToApp /></ListItemIcon>
+          <ListItemText primary="Login" />
+        </ListItem>
+        <ListItem button component={Link} to="/signup">
+          <ListItemIcon><ExitToApp /></ListItemIcon>
+          <ListItemText primary="Signup" />
+        </ListItem>
+        <ListItem button component={Link} to="/arena/new">
+          <ListItemIcon><Add /></ListItemIcon>
+          <ListItemText primary="Cadastrar Arena" />
+        </ListItem>
+        <ListItem button component={Link} to="/admin">
+          <ListItemIcon><AccountCircle /></ListItemIcon>
+          <ListItemText primary="Admin" />
+        </ListItem>
+        <ListItem button component={Link} to="/calendar">
+          <ListItemIcon><CalendarToday /></ListItemIcon>
+          <ListItemText primary="Calendário" />
+        </ListItem>
         {user && (
           <ListItem button onClick={handleLogout}>
             <ListItemIcon><ExitToApp /></ListItemIcon>
