@@ -1,57 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { ThemeProvider, CssBaseline } from '@mui/material';
+import React from 'react';
+import { BrowserRouter as Router, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import ArenaForm from './pages/ArenaForm';
 import AdminPage from './pages/AdminPage';
-import { auth, firestore } from './firebase';
+import Calendar from './pages/Calendar';
 import Sidebar from './components/Sidebar';
+import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from './theme';
-
+import './App.css';
 
 const App = () => {
-  const [user, setUser] = useState(null);
-  const [userType, setUserType] = useState('');
-
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        setUser(user);
-        const userDoc = await firestore.collection('users').doc(user.uid).get();
-        setUserType(userDoc.data().userType);
-      } else {
-        setUser(null);
-        setUserType('');
-      }
-    });
-    return unsubscribe;
-  }, []);
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Sidebar user={user} userType={userType}>
-          <Routes>
-            <Route exact path="/">
-              <Home user={user} userType={userType} />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/signup">
-              <Signup />
-            </Route>
-            <Route path="/arena/new">
-              {user && userType === 'owner' ? <ArenaForm /> : <Navigate to="/login" />}
-            </Route>
-            <Route path="/admin">
-              {user && userType === 'admin' ? <AdminPage /> : <Navigate to="/login" />}
-            </Route>
-          </Routes>
-        </Sidebar>
+        <div className="app">
+          <Sidebar />
+          <main className="content">
+            <Navigate>
+              <Route exact path="/" component={Home} />
+              <Route path="/login" component={Login} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/arena/new" component={ArenaForm} />
+              <Route path="/admin" component={AdminPage} />
+              <Route path="/calendar" component={Calendar} />
+            </Navigate>
+          </main>
+        </div>
       </Router>
     </ThemeProvider>
   );

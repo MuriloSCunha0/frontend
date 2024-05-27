@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Typography, Box } from '@mui/material';
+import { Container, Box, Typography } from '@mui/material';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -11,11 +11,8 @@ const Calendar = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       const snapshot = await firestore.collection('reservations').get();
-      const fetchedEvents = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setEvents(fetchedEvents);
+      const eventsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      setEvents(eventsData);
     };
 
     fetchEvents();
@@ -35,7 +32,7 @@ const Calendar = () => {
   };
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className="calendar-container">
       <Box mt={5}>
         <Typography variant="h4" gutterBottom>Calendário de Reservas</Typography>
         <FullCalendar
