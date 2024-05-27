@@ -1,34 +1,30 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Container, TextField, Button, Box, Typography } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../firebase';
-import { Container, TextField, Button, Typography, Box } from '@mui/material';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate('/dashboard');
+      await auth.signInWithEmailAndPassword(email, password);
+      Navigate('/');
     } catch (error) {
-      console.error('Erro ao fazer login', error);
+      console.error('Erro no login:', error);
     }
   };
 
   return (
-    <Container>
+    <Container maxWidth="sm">
       <Box mt={5}>
-        <Typography variant="h4" gutterBottom>
-          Login
-        </Typography>
-        <form onSubmit={handleLogin}>
+        <Typography variant="h4" gutterBottom>Login</Typography>
+        <form onSubmit={handleSubmit}>
           <TextField
             label="Email"
-            type="email"
             fullWidth
             margin="normal"
             value={email}
@@ -44,10 +40,13 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <Button type="submit" variant="contained" color="primary" fullWidth>
+            Login
+          </Button>
           <Box mt={2}>
-            <Button type="submit" variant="contained" color="primary" fullWidth>
-              Login
-            </Button>
+            <Typography variant="body2">
+              Não tem uma conta? <Link to="/signup">Cadastre-se</Link>
+            </Typography>
           </Box>
         </form>
       </Box>

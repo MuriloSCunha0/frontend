@@ -1,25 +1,39 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box } from '@mui/material';
+import { firestore, auth } from '../firebase';
 
-const BookingForm = ({ handleBooking }) => {
-  const [date, setDate] = useState(new Date());
+const BookingForm = ({ date, setBookings }) => {
   const [time, setTime] = useState('');
 
-  const onSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    handleBooking(date, time);
+    const user = auth.currentUser;
+    const newBooking = {
+      date: date.toISOString(),
+      time,
+      userId: user.uid,
+      userName: user.email,
+    };
+
+    try {
+      const docRef = await firestore.collection('bookings').add(newBooking);
+      setBookings((prevBookings) => [...prevBookings, { id: docRef.id, ...newBooking }]);
+    } catch (error) {
+      console.error('Erro ao criar reserva:', error);
+    }
   };
 
   return (
-    <Box component="form" onSubmit={onSubmit} mt={3}>
+    <Box component="form" onSubmit={handleSubmit} mt={3}>
       <TextField
         label="Data"
         type="date"
         fullWidth
         margin="normal"
         value={date.toISOString().substring(0, 10)}
-        onChange={(e) => setDate(new Date(e.target.value))}
+        onChange={(e) => setTime(e.target.value)}
         required
+        disabled
       />
       <TextField
         label="Hora"
