@@ -1,3 +1,4 @@
+// src/theme.js
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -6,7 +7,10 @@ const theme = createTheme({
       main: '#1976d2',
     },
     secondary: {
-      main: '#ff4081',
+      main: '#dc004e',
+    },
+    background: {
+      default: '#f5f5f5',
     },
   },
   typography: {

@@ -1,0 +1,55 @@
+/* src/App.css */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.MuiAppBar-root {
+  background: linear-gradient(45deg, #FF8E53 30%, #FF6F61 90%);
+}
+
+.MuiContainer-root {
+  padding: 16px;
+}
+
+.MuiCard-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.MuiCardMedia-root {
+  height: 140px;
+}
+
+.MuiTypography-h4 {
+  margin-bottom: 16px;
+}
+
+.MuiGrid-item {
+  padding: 16px;
+}
+
+.MuiRating-root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiButtonBase-root {
+  display: block;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .MuiTypography-h4 {
+    font-size: 1.5rem;
+  }
+
+  .MuiCardMedia-root {
+    height: 100px;
+  }
+}

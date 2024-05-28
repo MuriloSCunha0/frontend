@@ -1,6 +1,9 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import OwnerDashboard from '../pages/Dashboard';
 
 const Navbar = () => {
   return (
